@@ -1,0 +1,62 @@
+/* MARK: Base Styles */
+:root {
+  font-size: 62.5%;
+  accent-color: var(--chinese-black);
+
+  --chinese-black: hsl(180, 3%, 7%);
+  --bright-gray: hsl(0, 0%, 93%);
+  --cultured: hsl(0, 0%, 97%);
+  --white: hsl(0, 0%, 100%);
+  --carmine-pink: #ec4b4b;
+  --sea-green: #21a056;
+}
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 1.5rem;
+  line-height: 1.5;
+  color: var(--chinese-black);
+}
+
+button,
+input {
+  font: inherit;
+  line-height: 1.7;
+  padding: 0.2rem 1.2rem;
+  border-radius: 0.4rem;
+  background-color: transparent;
+}
+
+input {
+  outline-color: var(--chinese-black);
+}
+
+button {
+  border: none;
+  outline-color: inherit;
+  transition: filter 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+button:hover {
+  cursor: pointer;
+  filter: brightness(90%);
+}
+
+/* MARK: Utils */
+.container {
+  width: min(calc(100% - 4rem), 72rem);
+  margin-inline: auto;
+}
+
+.text-bold {
+  font-weight: 600;
+}

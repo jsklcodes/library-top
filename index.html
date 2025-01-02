@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="index.css" />
+  <title>Library</title>
+</head>
+
+<body>
+  <header class="header">
+    <h1 class="logo">Library</h1>
+    <button class="button button--primary" id="open-dialog-button">
+      New Book
+    </button>
+  </header>
+
+  <main class="library container">
+    <h2 class="library__title">My Library</h2>
+
+    <ul class="library__list" id="library-list">
+      <li class="library__item">
+        <div class="library__info">
+          <span class="text-bold">The Catcher in the Rye</span> by
+          <span>J.D. Salinger</span> • <span>234</span> pages •
+          <span class="text-bold">Not read</span>
+        </div>
+
+        <div class="library__actions">
+          <button class="button button--outline">Toggle Read Status</button>
+          <button class="button button--primary">Remove</button>
+        </div>
+      </li>
+
+      <li class="library__item">
+        <div class="library__info">
+          <span class="text-bold">The Catcher in the Rye</span> by
+          <span>J.D. Salinger</span> • <span>234</span> pages •
+          <span class="text-bold">Not read</span>
+        </div>
+
+        <div class="library__actions">
+          <button class="button button--outline">Toggle Read Status</button>
+          <button class="button button--primary">Remove</button>
+        </div>
+      </li>
+
+      <li class="library__item">
+        <div class="library__info">
+          <span class="text-bold">The Catcher in the Rye</span> by
+          <span>J.D. Salinger</span> • <span>234</span> pages •
+          <span class="text-bold">Not read</span>
+        </div>
+
+        <div class="library__actions">
+          <button class="button button--outline">Toggle Read Status</button>
+          <button class="button button--primary">Remove</button>
+        </div>
+      </li>
+
+      <li class="library__item">
+        <div class="library__info">
+          <span class="text-bold">The Catcher in the Rye</span> by
+          <span>J.D. Salinger</span> • <span>234</span> pages •
+          <span class="text-bold">Not read</span>
+        </div>
+
+        <div class="library__actions">
+          <button class="button button--outline">Toggle Read Status</button>
+          <button class="button button--primary">Remove</button>
+        </div>
+      </li>
+
+      <li class="library__item">
+        <div class="library__info">
+          <span class="text-bold">The Catcher in the Rye</span> by
+          <span>J.D. Salinger</span> • <span>234</span> pages •
+          <span class="text-bold">Not read</span>
+        </div>
+
+        <div class="library__actions">
+          <button class="button button--outline">Toggle Read Status</button>
+          <button class="button button--primary">Remove</button>
+        </div>
+      </li>
+    </ul>
+  </main>
+
+  <dialog class="dialog" id="add-book-dialog">
+    <form class="form" id="add-book-form">
+      <div class="form__group">
+        <label for="title" class="form__label">Title</label>
+        <input type="text" class="form__control" id="title" name="title" />
+      </div>
+
+      <div class="form__group">
+        <label for="author" class="form__label">Author</label>
+        <input type="text" class="form__control" id="author" name="author" />
+      </div>
+
+      <div class="form__group">
+        <label for="pages" class="form__label">Pages</label>
+        <input type="number" class="form__control" id="pages" name="pages" />
+      </div>
+
+      <div class="form__group">
+        <input type="checkbox" class="form__control" id="read" name="read" />
+        <label for="read" class="form__label">Read?</label>
+      </div>
+
+      <div class="form__actions">
+        <button type="submit" class="button button--primary">Add Book</button>
+        <button type="button" class="button button--outline" id="close-dialog-button">
+          Cancel
+        </button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="index.js"></script>
+</body>
+
+</html>
