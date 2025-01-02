@@ -1,3 +1,9 @@
+// === MARK: Utils ===
+const generateId = (() => {
+  let id = 0;
+  return () => id++;
+})();
+
 // === MARK: Dialog ===
 // Logic to make the `dialog` element interactive
 const addBookDialog = document.querySelector('#add-book-dialog');
