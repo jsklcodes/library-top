@@ -62,6 +62,28 @@ const handleRemoveButtonClick = event => {
   libraryItem.remove();
 };
 
+// Handle click to toggle read status
+const handleToggleReadButtonClick = event => {
+  const bookId = Number(event.target.dataset.id);
+  const libraryItem = document.querySelector(
+    `.library__item[data-id="${bookId}"]`
+  );
+  const readBadge = libraryItem.querySelector('.badge');
+
+  if (readBadge.classList.contains('badge--success')) {
+    readBadge.classList.remove('badge--success');
+    readBadge.classList.add('badge--danger');
+    readBadge.textContent = 'not read';
+  } else {
+    readBadge.classList.remove('badge--danger');
+    readBadge.classList.add('badge--success');
+    readBadge.textContent = 'read';
+  }
+
+  const selectedBook = myLibrary.find(book => book.id === bookId);
+  selectedBook.toggleReadStatus();
+};
+
 // === MARK: DOM ===
 // Generic button creation
 const createButton = text => {
@@ -80,12 +102,16 @@ const createLibraryItem = book => {
     `<div class="library__info">
        <span class="text-bold">${book.title}</span> by
        <span>${book.author}</span> • <span>${book.pages}</span> pages •
-       <span class="text-bold">Not read</span>
+       <span class="text-bold badge ${
+         book.read ? 'badge--success' : 'badge--danger'
+       }">${book.read ? 'read' : 'not read'}</span>
     </div>`
   );
 
   const toggleReadStatusButton = createButton('Toggle Read Status');
   toggleReadStatusButton.classList.add('button', 'button--primary');
+  toggleReadStatusButton.dataset.id = book.id;
+  toggleReadStatusButton.addEventListener('click', handleToggleReadButtonClick);
 
   const removeButton = createButton('Remove');
   removeButton.classList.add('button', 'button--outline');
