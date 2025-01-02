@@ -54,6 +54,14 @@ const handleFormSubmit = event => {
   event.target.reset();
 };
 
+// Handle click to remove a book
+const handleRemoveButtonClick = event => {
+  const bookId = Number(event.target.dataset.id);
+  const libraryItem = document.querySelector(`[data-id="${bookId}"]`);
+  myLibrary = myLibrary.filter(book => book.id !== bookId);
+  libraryItem.remove();
+};
+
 // === MARK: DOM ===
 // Generic button creation
 const createButton = text => {
@@ -81,6 +89,8 @@ const createLibraryItem = book => {
 
   const removeButton = createButton('Remove');
   removeButton.classList.add('button', 'button--outline');
+  removeButton.dataset.id = book.id;
+  removeButton.addEventListener('click', handleRemoveButtonClick);
 
   const libraryActions = document.createElement('div');
   libraryActions.classList.add('library__actions');
