@@ -34,6 +34,26 @@ Book.prototype.toggleReadStatus = function () {
   return this.read;
 };
 
+// === MARK: Events ===
+// Handle submission of the `#add-book-form`
+const handleFormSubmit = event => {
+  event.preventDefault();
+
+  const [title, author, pages, read] = event.target.elements;
+  const newBook = new Book(
+    title.value,
+    author.value,
+    pages.value,
+    read.checked
+  );
+
+  myLibrary.push(newBook);
+  libraryList.insertAdjacentElement('beforeend', createLibraryItem(newBook));
+
+  handleCloseDialog();
+  event.target.reset();
+};
+
 // === MARK: DOM ===
 // Generic button creation
 const createButton = text => {
@@ -78,6 +98,7 @@ const renderInitialLibrary = initialLibrary => {
   );
 };
 
+addBookForm.addEventListener('submit', handleFormSubmit);
 renderInitialLibrary(myLibrary);
 
 // === MARK: Dialog ===
