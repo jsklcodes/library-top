@@ -86,7 +86,6 @@ button:hover {
 }
 
 .button--outline {
-  background-color: var(--white-2);
   box-shadow: inset 0 0 0 0.1rem var(--bright-gray);
   color: var(--chinese-black);
 }
