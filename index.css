@@ -3,6 +3,7 @@
   font-size: 62.5%;
   accent-color: var(--chinese-black);
 
+  --bg-overlay: hsla(180, 3%, 7%, 0.5);
   --chinese-black: hsl(180, 3%, 7%);
   --bright-gray: hsl(0, 0%, 93%);
   --cultured: hsl(0, 0%, 97%);
@@ -139,6 +140,10 @@ button:hover {
   border: 0.1rem solid var(--bright-gray);
   width: min(calc(100% - 4rem), 48rem);
   padding: 3.2rem;
+}
+
+.dialog::backdrop {
+  background-color: var(--bg-overlay);
 }
 
 /* MARK: Form */
