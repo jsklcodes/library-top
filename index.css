@@ -129,3 +129,51 @@ button:hover {
 .library__actions > * {
   width: max-content;
 }
+
+/* MARK: Dialog */
+.dialog {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  border: 0.1rem solid var(--bright-gray);
+  width: min(calc(100% - 4rem), 48rem);
+  padding: 3.2rem;
+}
+
+/* MARK: Form */
+.form {
+  display: grid;
+  gap: 2rem;
+}
+
+.form__group {
+  display: grid;
+  row-gap: 0.4rem;
+}
+
+.form__group:nth-child(4) {
+  display: flex;
+  align-items: center;
+  column-gap: 0.8rem;
+}
+
+.form__label {
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.form__control {
+  border: 0.1rem solid var(--bright-gray);
+}
+
+.form__actions {
+  display: flex;
+  align-items: center;
+  column-gap: 0.8rem;
+}
+
+.form__actions > * {
+  flex: 1;
+}
