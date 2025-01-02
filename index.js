@@ -71,6 +71,15 @@ const createLibraryItem = book => {
   return libraryItem;
 };
 
+// Insert each of the books into the `#library-list` element
+const renderInitialLibrary = initialLibrary => {
+  initialLibrary.forEach(book =>
+    libraryList.insertAdjacentElement('beforeend', createLibraryItem(book))
+  );
+};
+
+renderInitialLibrary(myLibrary);
+
 // === MARK: Dialog ===
 // Logic to make the `dialog` element interactive
 const addBookDialog = document.querySelector('#add-book-dialog');
