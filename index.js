@@ -50,6 +50,11 @@ const handleFormSubmit = event => {
   myLibrary.push(newBook);
   libraryList.insertAdjacentElement('beforeend', createLibraryItem(newBook));
 
+  if (myLibrary.length) {
+    const emptyMessage = document.querySelector('.empty-message');
+    emptyMessage.remove();
+  }
+
   handleCloseDialog();
   event.target.reset();
 };
@@ -58,8 +63,13 @@ const handleFormSubmit = event => {
 const handleRemoveButtonClick = event => {
   const bookId = Number(event.target.dataset.id);
   const libraryItem = document.querySelector(`[data-id="${bookId}"]`);
+
   myLibrary = myLibrary.filter(book => book.id !== bookId);
   libraryItem.remove();
+
+  if (!myLibrary.length) {
+    renderEmptyMessage();
+  }
 };
 
 // Handle click to toggle read status
@@ -127,11 +137,30 @@ const createLibraryItem = book => {
   return libraryItem;
 };
 
+// Creates and returns an `li` element containing an empty message
+const createEmptyMessage = text => {
+  return `<li class="empty-message">${text}</li>`;
+};
+
+// Insert a empty message element into `#library-list`
+const renderEmptyMessage = () => {
+  libraryList.insertAdjacentHTML(
+    'afterbegin',
+    createEmptyMessage(
+      'Your library is empty. Click on the “New Book” button above to add some books.'
+    )
+  );
+};
+
 // Insert each of the books into the `#library-list` element
 const renderInitialLibrary = initialLibrary => {
-  initialLibrary.forEach(book =>
-    libraryList.insertAdjacentElement('beforeend', createLibraryItem(book))
-  );
+  if (!initialLibrary.length) {
+    renderEmptyMessage();
+  } else {
+    initialLibrary.forEach(book =>
+      libraryList.insertAdjacentElement('beforeend', createLibraryItem(book))
+    );
+  }
 };
 
 addBookForm.addEventListener('submit', handleFormSubmit);
