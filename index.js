@@ -1,3 +1,7 @@
+// References to the necessary HTML elements
+const libraryList = document.querySelector('#library-list');
+const addBookForm = document.querySelector('#add-book-form');
+
 // === MARK: Utils ===
 const generateId = (() => {
   let id = 0;
@@ -28,6 +32,43 @@ function Book(title, author, pages, read) {
 Book.prototype.toggleReadStatus = function () {
   this.read = !this.read;
   return this.read;
+};
+
+// === MARK: DOM ===
+// Generic button creation
+const createButton = text => {
+  const button = document.createElement('button');
+  button.textContent = text;
+  return button;
+};
+
+// Creates and returns an `li` element containing book information
+const createLibraryItem = book => {
+  const libraryItem = document.createElement('li');
+  libraryItem.classList.add('library__item');
+  libraryItem.dataset.id = book.id;
+  libraryItem.insertAdjacentHTML(
+    'afterbegin',
+    `<div class="library__info">
+       <span class="text-bold">${book.title}</span> by
+       <span>${book.author}</span> • <span>${book.pages}</span> pages •
+       <span class="text-bold">Not read</span>
+    </div>`
+  );
+
+  const toggleReadStatusButton = createButton('Toggle Read Status');
+  toggleReadStatusButton.classList.add('button', 'button--primary');
+
+  const removeButton = createButton('Remove');
+  removeButton.classList.add('button', 'button--outline');
+
+  const libraryActions = document.createElement('div');
+  libraryActions.classList.add('library__actions');
+
+  libraryActions.append(toggleReadStatusButton, removeButton);
+  libraryItem.appendChild(libraryActions);
+
+  return libraryItem;
 };
 
 // === MARK: Dialog ===
