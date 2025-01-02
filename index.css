@@ -62,6 +62,23 @@ button:hover {
   font-weight: 600;
 }
 
+/* MARK: Badge */
+.badge {
+  font-size: 1.3rem;
+  color: var(--white);
+  padding-inline: 0.4rem;
+  padding-bottom: 0.2rem;
+  border-radius: 0.2rem;
+}
+
+.badge--success {
+  background-color: var(--sea-green);
+}
+
+.badge--danger {
+  background-color: var(--carmine-pink);
+}
+
 /* MARK: Buttons */
 .button--primary {
   background-color: var(--chinese-black);
