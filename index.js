@@ -14,6 +14,12 @@ function Book(title, author, pages, read) {
   this.read = read;
 }
 
+// Method to toggle read status in `Book instances`
+Book.prototype.toggleReadStatus = function () {
+  this.read = !this.read;
+  return this.read;
+};
+
 // === MARK: Dialog ===
 // Logic to make the `dialog` element interactive
 const addBookDialog = document.querySelector('#add-book-dialog');
