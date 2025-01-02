@@ -4,6 +4,16 @@ const generateId = (() => {
   return () => id++;
 })();
 
+// === MARK: Data ===
+// Initial data structure containing instances of `Book`
+let myLibrary = [
+  new Book('The Hobbit', 'J.R.R. Tolkien', 295, true),
+  new Book('1984', 'George Orwell', 328, false),
+  new Book('Pride and Prejudice', 'Jane Austen', 432, true),
+  new Book('The Catcher in the Rye', 'J.D. Salinger', 234, false),
+  new Book('To Kill a Mockingbird', 'Harper Lee', 281, true),
+];
+
 // === MARK: Book ===
 // Constructor function for books
 function Book(title, author, pages, read) {
