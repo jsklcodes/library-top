@@ -88,3 +88,44 @@ button:hover {
   font-size: 2rem;
   font-weight: 600;
 }
+
+/* MARK: Library */
+.library {
+  padding-block: 6.4rem;
+}
+
+.library__title {
+  font-size: 2rem;
+  margin-bottom: 3.2rem;
+}
+
+.library__list {
+  list-style: none;
+}
+
+.library__item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  row-gap: 0.8rem;
+  padding-block: 0.8rem;
+}
+
+.library__item:not(:last-child) {
+  border-bottom: 0.1rem solid var(--bright-gray);
+}
+
+.library__info {
+  max-width: 60ch;
+}
+
+.library__actions {
+  display: flex;
+  align-items: center;
+  column-gap: 0.8rem;
+}
+
+.library__actions > * {
+  width: max-content;
+}
