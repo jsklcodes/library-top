@@ -100,11 +100,11 @@ const createLibraryItem = book => {
   libraryItem.insertAdjacentHTML(
     'afterbegin',
     `<div class="library__info">
-       <span class="text-bold">${book.title}</span> by
-       <span>${book.author}</span> • <span>${book.pages}</span> pages •
        <span class="text-bold badge ${
          book.read ? 'badge--success' : 'badge--danger'
-       }">${book.read ? 'read' : 'not read'}</span>
+       }">${book.read ? 'read' : 'not read'}</span> •   
+      <span class="text-bold">${book.title}</span> by
+       <span>${book.author}</span> • <span>${book.pages}</span> pages
     </div>`
   );
 
