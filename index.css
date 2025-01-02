@@ -198,3 +198,13 @@ button:hover {
 .form__actions > * {
   flex: 1;
 }
+
+/* MARK: Empty message */
+.empty-message {
+  opacity: 0.75;
+  padding: 2rem;
+  border-radius: 0.4rem;
+  background-color: var(--cultured);
+  border: 0.1rem solid var(--bright-gray);
+  text-align: center;
+}
