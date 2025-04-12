@@ -189,6 +189,14 @@ button:hover {
   border: 0.1rem solid var(--bright-gray);
 }
 
+.form__control:user-valid {
+  border-color: var(--sea-green);
+}
+
+.form__control:user-invalid {
+  border-color: var(--carmine-pink);
+}
+
 .form__actions {
   display: flex;
   align-items: center;
@@ -207,4 +215,11 @@ button:hover {
   background-color: var(--cultured);
   border: 0.1rem solid var(--bright-gray);
   text-align: center;
+}
+
+/* MARK: Error message */
+.error-message {
+  color: var(--carmine-pink);
+  font-size: 1.3rem;
+  height: 1rem;
 }

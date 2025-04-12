@@ -26,17 +26,20 @@
     <form class="form" id="add-book-form">
       <div class="form__group">
         <label for="title" class="form__label">Title</label>
-        <input type="text" class="form__control" id="title" name="title" />
+        <input type="text" class="form__control" id="title" name="title" required />
+        <div class="error-message title"></div>
       </div>
 
       <div class="form__group">
         <label for="author" class="form__label">Author</label>
-        <input type="text" class="form__control" id="author" name="author" />
+        <input type="text" class="form__control" id="author" name="author" required />
+        <div class="error-message author"></div>
       </div>
 
       <div class="form__group">
         <label for="pages" class="form__label">Pages</label>
-        <input type="number" class="form__control" id="pages" name="pages" />
+        <input type="number" class="form__control" id="pages" name="pages" required />
+        <div class="error-message pages"></div>
       </div>
 
       <div class="form__group">

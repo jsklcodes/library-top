@@ -37,26 +37,30 @@ Book.prototype.toggleReadStatus = function () {
 // === MARK: Events ===
 // Handle submission of the `#add-book-form`
 const handleFormSubmit = event => {
-  event.preventDefault();
+  if (!event.target.checkValidity()) {
+    event.preventDefault();
+  } else {
+    event.preventDefault();
 
-  const [title, author, pages, read] = event.target.elements;
-  const newBook = new Book(
-    title.value,
-    author.value,
-    pages.value,
-    read.checked
-  );
+    const [title, author, pages, read] = event.target.elements;
+    const newBook = new Book(
+      title.value,
+      author.value,
+      pages.value,
+      read.checked
+    );
 
-  myLibrary.push(newBook);
-  libraryList.insertAdjacentElement('beforeend', createLibraryItem(newBook));
+    myLibrary.push(newBook);
+    libraryList.insertAdjacentElement('beforeend', createLibraryItem(newBook));
 
-  if (myLibrary.length) {
-    const emptyMessage = document.querySelector('.empty-message');
-    emptyMessage.remove();
+    if (myLibrary.length) {
+      const emptyMessage = document.querySelector('.empty-message');
+      emptyMessage.remove();
+    }
+
+    handleCloseDialog();
+    event.target.reset();
   }
-
-  handleCloseDialog();
-  event.target.reset();
 };
 
 // Handle click to remove a book
@@ -177,3 +181,46 @@ const handleCloseDialog = () => addBookDialog.close();
 
 openDialogButton.addEventListener('click', handleOpenDialog);
 closeDialogButton.addEventListener('click', handleCloseDialog);
+
+// === MARK: Validation ===
+const titleInput = document.querySelector('#title');
+const authorInput = document.querySelector('#author');
+const pagesInput = document.querySelector('#pages');
+
+const titleErrorMessage = document.querySelector('.error-message.title');
+const authorErrorMessage = document.querySelector('.error-message.author');
+const pagesErrorMessage = document.querySelector('.error-message.pages');
+
+const validateRequiredField = (field, errorMessage, errorMessageContainer) => {
+  if (field.validity.valid) {
+    errorMessageContainer.textContent = '';
+  } else {
+    if (field.validity.valueMissing) {
+      errorMessageContainer.textContent = errorMessage;
+    }
+  }
+};
+
+titleInput.addEventListener('input', () =>
+  validateRequiredField(
+    titleInput,
+    "Please enter the book's name.",
+    titleErrorMessage
+  )
+);
+
+authorInput.addEventListener('input', () =>
+  validateRequiredField(
+    authorInput,
+    "Please enter the author's name.",
+    authorErrorMessage
+  )
+);
+
+pages.addEventListener('input', () =>
+  validateRequiredField(
+    pagesInput,
+    'Please enter the number of pages in the book.',
+    pagesErrorMessage
+  )
+);
